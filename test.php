@@ -8,13 +8,31 @@ $a = new classA();
 $b = new classB();
 $c = new classC();
 
-echo $a->methodA('John'); // works
+/*
+ * A has strict typing
+ */
+echo $a->methodA('John'); // works passing a string to a method type hinted with a string and  strict typing is turned on.
 echo "\n";
-echo $b->methodB('123'); // works
+
+/*
+ * B does not has strict typing
+ */
+echo $b->methodB('123'); // works passing a string to a method type hinted as an int but without strict type hinting.
 echo "\n";
-echo $b->methodB('1 Cal Evans'); // Fail
+echo $b->methodA('456'); // works passing a string to a method type hinted as an string but without strict type hinting.
 echo "\n";
-echo $b->methodA('123'); // works
+echo $b->methodB(789); // works even though this passes an int up to a method type hinted as a string in a class that has strich typing turned on.
 echo "\n";
-echo $c->methodC('123'); // works
+/*
+ * C does not has strict typing and is not a child of A.
+ */
+echo $c->methodC('101112'); // works
 echo "\n";
+
+echo  '1 Cal Evans' + 2; // Throws a warning BUT coerces the string to a number and returns 3.
+echo "\n";
+
+echo $b->methodB('1 Cal Evans'); // Fails and I honestly do not know why. I would expect this to work. We know the rules of coercion, and we jsut swoed that this should be coerced to a number. I am not sure why this fails. But here we are.
+
+echo "\n";
+
