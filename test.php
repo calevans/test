@@ -1,4 +1,14 @@
 <?php
+/*
+ * Plugin Name: PressoVerbum
+ * Plugin URI:
+ * Description: A plugin to read an RSS feed, find posts it's not seen before, feed the post to ChatGPT for a summary. Then create a new post with the summary and a link to the original post.
+ * Version:     4.0.0
+ * Author:      Cal Evans
+ * Author URI:  https://calevans.com
+ * Text Domain: presso-verbum
+ * License:     MIT
+ */
 
 require_once 'classA.php';
 require_once 'classB.php';
